@@ -1,0 +1,32 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add koa
+
+PATH: 
+  /Users/fidele/.bun/bin:/Users/fidele/Library/Application Support/Herd/bin/:/Users/fidele/Library/pnpm:/Users/fidele/.detaspace/bin:/Users/fidele/opt/miniconda3/bin:/Users/fidele/opt/miniconda3/condabin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/fidele/.cargo/bin:/Users/fidele/.fig/bin:/Users/fidele/.local/bin:/usr/local/bin:/cmdline-tools/latest/bin:/Users/fidele/development/flutter/bin:/Users/fidele/.pub-cache/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.17.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:109:26)
+
+npm manifest: 
+  {
+    "name": "koa-starter-template-api",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
