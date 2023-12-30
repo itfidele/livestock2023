@@ -17,16 +17,22 @@ export async function restrictToAdmins (ctx: Context, next: Next): Promise<Next>
 
 export async function mustBeAuthenticated (ctx: Context, next: Next): Promise<Next> {
   const AuthorizationToken = ctx.request.headers.authorization
-  const {
-    userId,
-    isAdmin
-  } = await decodeTokenizedRequest(AuthorizationToken)
-  ctx.state.userId = userId
-  ctx.state.isAdmin = isAdmin
-  const thisUserAccount = await UsersEntity.getUserById(userId)
-  if (thisUserAccount !== undefined) {
-    return await next()
+  
+  try{
+    const {
+      userId,
+      isAdmin
+    } = await decodeTokenizedRequest(AuthorizationToken);
+    ctx.state.userId = userId;
+    ctx.state.isAdmin = isAdmin;
+    const thisUserAccount = await UsersEntity.getUserById(userId);
+    if (thisUserAccount !== undefined) {
+      return await next();
+    }
   }
-  logger.error(`[MW~${nodeEnv}]: User does not exist`)
-  ctx.throw(422)
+  catch(error){
+    console.log(error);
+    ctx.throw("User does not exist", 400);
+  }
+
 }

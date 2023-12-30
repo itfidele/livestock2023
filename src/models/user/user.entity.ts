@@ -18,6 +18,9 @@ import {
     @Column({ name: 'first_name', type: 'varchar', nullable: true })
     public firstName: string
 
+    @Column({ name: 'last_name', type: 'varchar', nullable: true })
+    public lastName: string
+
     @Column({ name: 'email', type: 'varchar', unique: true, length:255 })
     public email: string
   
@@ -43,10 +46,11 @@ import {
       email: string,
       password: string,
       firstName: string,
-      lastName: string
+      lastName: string,
+      phone: string
     ): Promise<string> {
       const createdEntity = await this.getRepository().save({ email, password, 
-         firstName, lastName})
+         firstName, lastName,phone})
       return createdEntity.id
     }
   

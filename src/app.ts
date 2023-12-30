@@ -4,6 +4,7 @@ import bodyParser from "koa-bodyparser";
 import { AppRouter } from "./routes";
 import json from "koa-json";
 import logger from 'koa-logger'
+import koaBody from "koa-body";
 import * as HttpStatus from 'http-status-codes'
 
 const app = new Koa();
@@ -11,8 +12,8 @@ const app = new Koa();
 app.use(cors())
 app.use(json())
 app.use(logger())
-app.use(bodyParser())
 
+app.use(koaBody({multipart:true}))
 
 // Generic error handling middleware.
 app.use(async (ctx: Koa.Context, next: () => Promise<any>) => {

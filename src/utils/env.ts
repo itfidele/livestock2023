@@ -6,3 +6,9 @@ export const dbUseSsl = process.env.DB_USE_SSL === 'true' || 'false'
 export const synchronizeOrm = process.env.SYNCHRONIZE_ORM === 'true' || 'false'
 export const jwtPrivateKey = (process.env.JWT_PRIVATE_KEY !== undefined) ? process.env.JWT_PRIVATE_KEY : 'kore-starter-templatekKaTT2dJRXSH3sMxkZ2aWY95jfTeXlocal'
 export const apiBaseUrl = (process.env.API_BASE_URL !== undefined) ? process.env.API_BASE_URL : ''
+
+
+
+export const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
+export const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY;
+export const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET;

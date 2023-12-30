@@ -19,7 +19,7 @@ export async function handleLogin(
     }
     const token = await getUserToken(email, thisUser.id, thisUser.isAdmin);
     await UsersEntity.updateLastLogin(thisUser.id);
-    return { isAdmin: thisUser.isAdmin, token };
+    return { isAdmin: thisUser.isAdmin, token,...thisUser };
 }
 
 
@@ -27,7 +27,8 @@ export async function handleRegistration(
     email: string,
     plainPassword: string,
     firstName: string,
-    lastName: string
+    lastName: string,
+    phone: string
   ): Promise<string> {
     //TODO: Add email verification
     //await verifyEmailAuthenticity(email);
@@ -41,7 +42,8 @@ export async function handleRegistration(
       email.toLowerCase(),
       password,
       firstName,
-      lastName
+      lastName,
+      phone
     );
     return await getUserToken(email, newUser, false);
   }
