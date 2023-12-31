@@ -1,4 +1,4 @@
-import {BaseEntity, Entity, ManyToOne,Column,PrimaryGeneratedColumn,Index} from "typeorm";
+import {BaseEntity, Entity, ManyToOne,Column,PrimaryGeneratedColumn,Index, CreateDateColumn, UpdateDateColumn} from "typeorm";
 import { UsersEntity } from "../user/user.entity"
 import { AnimalBreedEntity } from "models/animalbreed/animalbreed.entity";
 import { AnimalTypeEntity } from "models/animaltype/animaltype.entity";
@@ -21,6 +21,12 @@ export class AnimalEntity extends BaseEntity{
     @Column({ name: 'image', type: 'text',nullable:true })
     public imageURL: string
 
+    @Column({ name: 'weight', type: 'text',nullable:true })
+    public weight: string
+
+    @Column({ name: 'description', type: 'text',nullable:true })
+    public description: string
+
     @ManyToOne(() => AnimalBreedEntity, breed => breed)
     public breed: AnimalBreedEntity
 
@@ -29,4 +35,10 @@ export class AnimalEntity extends BaseEntity{
 
     @ManyToOne(() => UsersEntity, user => user)
     public user: UsersEntity
+
+    @CreateDateColumn({ type: 'timestamp', name: 'created_at' })
+    public createdAt: Date
+  
+    @UpdateDateColumn({ type: 'timestamp', name: 'updated_at' })
+    public updatedAt: Date
 }

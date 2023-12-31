@@ -1,6 +1,6 @@
 import { AnimalEntity } from "models/animal/animal.entity";
 import { UsersEntity } from "models/user/user.entity";
-import { BaseEntity, Column, Entity, Index, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, Index, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 
 
@@ -19,5 +19,11 @@ export class AnimalTypeEntity extends BaseEntity {
 
     @OneToMany(() => AnimalEntity, animal => animal.type)
     animals: AnimalEntity[];
+
+    @CreateDateColumn({ type: 'timestamp', name: 'created_at' })
+    public createdAt: Date
+  
+    @UpdateDateColumn({ type: 'timestamp', name: 'updated_at' })
+    public updatedAt: Date
     
 }

@@ -31,7 +31,7 @@ authRoutes.post('/register',async (ctx)=>{
     ctx.throw("Incomplete Form", 400);
   }
   const token = await handleRegistration(String(email), String(password), String(firstName), String(lastName), String(phone));
-  ctx.status = 204;
+  ctx.status = 201;
   ctx.body = { token };
 
 })
